@@ -34,8 +34,8 @@ PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/blackview/a80pro/re
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_NAME := twrp_a80pro
-PRODUCT_DEVICE := A80Pro
-PRODUCT_MODEL := A80Pro
-PRODUCT_BRAND := Blackview
-PRODUCT_MANUFACTURER := Blackview
+PRODUCT_DEVICE := a80pro
+PRODUCT_MODEL := a80pro
+PRODUCT_BRAND := blackview
+PRODUCT_MANUFACTURER := blackview
 PRODUCT_GMS_CLIENTID_BASE := android-blackview

@@ -1,0 +1,33 @@
+cpu=$(getprop ro.board.platform)
+device=$(getprop ro.product.product.device)
+device_model=$(getprop ro.product.product.model)
+device_codename=$(getprop ro.product.product.name)
+os_ver=$(getprop ro.build.version.release)
+bootloader=$(getprop ro.boot.bootloader)
+
+msg_info() {
+echo " - Device Info:";
+echo " - Device: $device | Bootloader: $bootloader";
+echo " - CPU: $cpu | Device_Model: $device_model";
+echo " - Device_Product: $device_codename | Android_OS: $os_ver";
+echo " --- [Args] = --blue --red --gren ---";
+}
+
+set_blue() {
+echo 6 > /sys/class/leds/blue/brightness
+}
+
+set_green() {
+echo 6 > /sys/class/leds/green/brightness
+}
+
+set_red() {
+echo 6 > /sys/class/leds/red/brightness
+}
+
+msg_info
+if [ "$@" == "--blue" ] || [ "$@" == "--all" ]; then set_blue; fi
+if [ "$@" == "--gree" ] || [ "$@" == "--all" ]; then set_green; fi
+if [ "$@" == "--red" ] || [ "$@" == "--all" ]; then set_red; fi
+
+echo "Work Finished.";

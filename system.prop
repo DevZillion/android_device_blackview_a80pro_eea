@@ -1,0 +1,10 @@
+ro.product.brand=Blackview
+ro.product.name=A80Pro_EEA
+ro.product.device=A80Pro
+ro.build.product=A80Pro_EEA
+ro.treble.enabled=true
+ro.product.board=k57pv1_dm_64
+ro.board.platform=mt6757
+sys.usb.controller=musb-hdrc
+# ro.boot.dynamic_partitions is not present.
+ro.boot.boot_devices=bootdevice,11230000.mmc

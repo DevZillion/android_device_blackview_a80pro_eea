@@ -3,20 +3,19 @@
 /vendor_image	emmc		/dev/block/by-name/vendor							flags=backup=0;flashimg;display="Vendor Image"
 
 # Physical partitions - Data
-/metadata		ext4		/dev/block/platform/bootdevice/by-name/md_udc		flags=display="Metadata"
-/data			f2fs		/dev/block/by-name/userdata							flags=length=-16384;fileencryption=aes-256-xts:aes-256-cts:v1
+/metadata		ext4		/dev/block/by-name/metadata							flags=display="Metadata"
+/data			ext4		/dev/block/by-name/userdata							flags=display="Data";wipeingui
 
 # Physical partitions - Important Data - Must Backup
 /nvram			emmc		/dev/block/by-name/nvram							flags=backup=1;display="NVRAM"
 /nvdata			ext4		/dev/block/by-name/nvdata							flags=backup=1;subpartitionof=/nvram
 /nvcfg			ext4		/dev/block/by-name/nvcfg							flags=backup=1;subpartitionof=/nvram
 /persist		emmc		/dev/block/by-name/persist 							flags=backup=1;display="Persist"
-/persistent		emmc 		/dev/block/platform/bootdevice/by-name/frp 			flags=backup=1;display="Persistent"
 
-/md1arm7		emmc		/dev/block/platform/bootdevice/by-name/md1arm7		flags=backup=1;display="Baseband - md1arm7"
-/md1dsp			emmc		/dev/block/platform/bootdevice/by-name/md1dsp		flags=backup=1;display="Baseband - md1dsp"
-/md1img			emmc		/dev/block/platform/bootdevice/by-name/md1img		flags=backup=1;display="Baseband - md1img"
-/md3img			emmc		/dev/block/platform/bootdevice/by-name/md3img		flags=backup=1;display="Baseband - md3img"
+/md1arm7		emmc		/dev/block/by-name/md1arm7							flags=backup=1;display="Baseband - md1arm7"
+/md1dsp			emmc		/dev/block/by-name/md1dsp							flags=backup=1;display="Baseband - md1dsp"
+/md1img			emmc		/dev/block/by-name/md1img							flags=backup=1;display="Baseband - md1img"
+/md3img			emmc		/dev/block/by-name/md3img							flags=backup=1;display="Baseband - md3img"
 
 
 # Physical partitions - Backupable
@@ -25,10 +24,10 @@
 /logo			emmc		/dev/block/by-name/logo								flags=backup=1;display="Logo";flashimg=1;backup=1
 /vbmeta			emmc		/dev/block/by-name/vbmeta							flags=backup=1;display="VBMeta";flashimg=1;backup=1
 
-/cache 			ext4		/dev/block/by-name/vbmeta							flags=wipeingui;
+/cache 			ext4		/dev/block/by-name/cache							flags=wipeingui;
 /protect_f 		ext4 		/dev/block/platform/bootdevice/by-name/protect1 
 /protect_s 		ext4 		/dev/block/platform/bootdevice/by-name/protect2 
 
 # External
 /external_sd	auto		/dev/block/mmcblk1p1	/dev/block/mmcblk1			flags=display="External SDCard";storage;wipeingui;removable;backup=0
-/usb_otg		auto    	/dev/block/sda1		/dev/block/sda					flags=display="USB-OTG";storage;removable;backup=0
+/usb_otg		auto    	/dev/block/sda1			/dev/block/sda				flags=display="USB-OTG";storage;removable;backup=0
